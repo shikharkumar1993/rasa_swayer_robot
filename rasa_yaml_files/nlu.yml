@@ -1,0 +1,66 @@
+version: "3.1"
+
+nlu:
+- intent: provide_user_type
+  examples: |
+    - I am a [E1G1](user_type)    
+    - My user type is [E2G1](user_type)
+    - [E1G1](user_type)
+    - [E2G1](user_type)
+    - [E1G2](user_type)
+    - [E2G2](user_type)
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: question_what
+  examples: |
+    - what do you mean?
+    - what should I do?
+    - what is the error?
+    - what you are doing?
+    - what error
+    - what
+    - what is your problem?
+    
+    
+
+
+- intent: question_why
+  examples: |
+    - why an error has occured
+    - why
+    - why error occured
+    - why happened
+    - Why error
+    - Why mistake happened
+    - Why error happened
+    - Why are you not able to reach the item
+    - why are you not able to put the item
+- intent: question_how
+  examples: |
+    - how will we resolve
+    - how
+    - how to correct error
+    - how to correct
+    - how error should be resolved
+    - how to resolve
+    - how to solve this error
+   
+- intent: bot_challenge
+  examples: |
+    - I don't know
+    

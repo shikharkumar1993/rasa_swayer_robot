@@ -1,0 +1,108 @@
+version: "3.1"
+
+intents:
+  - provide_user_type
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - question_what
+  - question_why
+  - bot_challenge
+  - question_how
+entities:
+  - user_type
+
+slots:
+  user_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: user_type
+
+responses:
+  utter_greet:
+  - text: "Error occured"
+
+  utter_medium1:
+    - condition:
+      - type: slot
+        name: user_type
+        value: E1G1
+      text: "Error, I’m unable to put the item on shelf."
+
+    - condition:
+      - type: slot
+        name : user_type
+        value : E2G1
+      text: "Error, I’m unable to reach the item on the table."
+
+    - condition:
+      - type: slot
+        name: user_type
+        value: E1G2
+      text: "Error, I’m unable to put the item on shelf."
+
+    - condition:
+      - type: slot
+        name : user_type
+        value : E2G2
+      text: "Error, I’m unable to reach the item on the table."
+
+  utter_medium2:
+    - condition:
+      - type: slot
+        name: user_type
+        value: E1G1
+      text: "Error due to incorrect item."
+
+    - condition:
+      - type: slot
+        name: user_type
+        value: E2G2
+      text: "Error due to out of vision."
+
+  
+    - condition:
+      - type: slot
+        name: user_type
+        value: E1G2
+      text: "Error, I’m unable to put the item on shelf , because its incorrect item."
+
+    - condition:
+      - type: slot
+        name: user_type
+        value: E2G1
+      text: "Error , I’m unable to reach the item on the table, because it is outside my camera vision"
+ 
+  utter_resolve:
+    - condition:
+      - type: slot
+        name: user_type
+        value: E1G2
+      text: "Please swap it with the green cube."
+
+    - condition:
+      - type: slot
+        name: user_type
+        value: E2G1
+      text: "Please move it into the square." 
+ 
+  utter_iamabot:
+  - text: "I am sorry could you please ask another question"
+
+actions:
+  - action_check_user_type
+  - action_respond_based_on_user_type
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_medium1
+  - utter_medium2
+  - utter_high_loe
+  - utter_resolve
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

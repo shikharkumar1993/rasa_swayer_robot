@@ -1,0 +1,69 @@
+version: "3.1"
+stories:
+
+- story: First error generation
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+
+- story: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- story: error1group1
+  steps:
+    - intent: provide_user_type
+      entities:
+      - user_type: E1G1
+    - slot_was_set:
+      - user_type: E1G1    
+    - intent: question_what
+    - action: utter_medium1       
+    - intent: question_why
+    - action: utter_medium2
+    - intent: question_how
+    - action: utter_resolve
+
+- story: Error2Group1
+  steps:
+  - intent: provide_user_type 
+    entities:
+    - user_type: E2G1
+  - slot_was_set:
+    - user_type: E2G1 
+  - intent: question_what
+  - action: utter_medium1   
+  - intent: question_why
+  - action: utter_medium2
+  - intent: question_how
+  - action: utter_resolve
+
+- story: error1group2
+  steps:
+    - intent: provide_user_type
+      entities:
+      - user_type: E1G2
+    - slot_was_set:
+      - user_type: E1G2    
+    - intent: question_what
+    - action: utter_medium1       
+    - intent: question_why
+    - action: utter_medium2
+    - intent: question_how
+    - action: utter_resolve
+
+- story: Error2Group2
+  steps:
+  - intent: provide_user_type 
+    entities:
+    - user_type: E2G2
+  - slot_was_set:
+    - user_type: E2G2 
+  - intent: question_what
+  - action: utter_medium1   
+  - intent: question_why
+  - action: utter_medium2
+    
